@@ -1,0 +1,32 @@
+{% extends 'master' %}
+
+{% block content %}
+<div class="columns is-vcentered">
+	<div class="column is-8 is-offset-2">
+		{{ form.open({action: 'PostsController.store', method: 'post'}) }}
+		{{ csrfField }}
+		<h1 class="title">
+			Create Post
+		</h1>
+		<div class="box">
+			<label class="label">Title</label>
+			<p class="control">
+				<input class="input" type="text" name="title">
+			</p>
+			<label class="label">Content</label>
+			<p class="control">
+				<textarea class="textarea" name="content"></textarea>
+			</p>
+			<div class="control is-grouped">
+				<p class="control">
+					<button class="button is-primary">Create New Post</button>
+				</p>
+				<p class="control">
+					<a class="button is-link" href="/">Cancel</a>
+				</p>
+			</div>
+		</div>
+		{{ form.close() }}
+	</div>
+</div>
+{% endblock %}

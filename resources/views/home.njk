@@ -1,0 +1,54 @@
+{% extends 'master' %}
+
+{% block content %}
+<div class="column is-9 is-half is-offset-2">
+{% if not posts %}
+  <p class="control" style="text-align: right;">
+    <a class="button is-primary" href="/posts/create">
+      Create new post
+    </a>
+  </p>
+  {% endif %}
+  <div class="box">
+   {% for post in posts %} 
+   <article class="media">
+    <div class="media-left">
+      <figure class="image is-64x64">
+        <img src="http://placehold.it/128x128" alt="Image">
+      </figure>
+    </div>
+    <div class="media-content">
+      <div class="content">
+        <p>
+          <strong>{{ post.title | truncate(50) }}</strong> 
+          <br>
+          {{ post.content | truncate(150) }}
+        </p>
+      </div>
+      <nav class="level">
+        <div class="level-left">
+          <a class="level-item" href="/posts/edit/{{ post.id }}">
+            <span class="icon is-small"><i class="fa fa-edit"></i></span>
+          </a>
+          <a class="level-item" href="/posts/{{ post.id }}">
+            <span class="icon is-small"><i class="fa fa-eye"></i></span>
+          </a>
+          <a class="level-item" href="posts/delete/{{ post.id }}">
+            <span class="icon is-small"><i class="fa fa-trash-o"></i></span>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </article>
+  {% else %}
+  <h2 class="title"> No posts found, Let's create your first post </h2>
+  <br>
+  <p class="control" style="text-align: center;">
+    <a class="button is-primary is-large" href="/posts/create">
+      Create new post
+    </a>
+  </p>
+  {% endfor %}
+</div>
+{% endblock %}
+

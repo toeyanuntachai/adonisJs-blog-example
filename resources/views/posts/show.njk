@@ -1,0 +1,26 @@
+{% extends 'master' %}
+
+{% block content %}
+<div class="columns">
+	<div class="column is-8 is-offset-2">
+		<div class="box">
+			<article class="media">
+				<div class="media-content">
+					<p class="control">
+						<h2 class="title">{{ post.title }}</h2>
+					</p>
+					<div class="content">
+						<p class="control">
+						{{ post.content }}
+					</p>
+					</div>
+					<br>
+					<p class="control">
+					<a class="button is-primary" href="/"><i class="fa fa-reply">&nbsp;Back</i> </a>
+				</p>
+				</div>
+			</article>
+		</div>
+	</div>
+</div>
+{% endblock %}

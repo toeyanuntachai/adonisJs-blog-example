@@ -1,0 +1,31 @@
+{% extends 'master' %}
+
+{% block content %}
+<div class="columns">
+	<div class="column is-8 is-offset-2">
+		{{ form.open({route: 'post.update', method: 'POST'}) }}
+		{{ csrfField }}
+		<div class="box">
+			<article class="media">
+				<div class="media-content">
+				<input type="hidden" name="id" value="{{ post.id }}">
+					<p class="control">
+						<input class="input" type="tetx" name="title" value="{{ post.title }}">
+					</p>
+					<div class="content">
+						<p class="control">
+							<textarea class="textarea" name="content">{{ post.content }}</textarea>
+						</p>
+					</div>
+					<br>
+					<p class="control">
+						<button class="button is-primary" type="submit"><i class="fa fa-save">&nbsp;Save</i> </button>
+						<a class="button is-link" href="/">Cancel</a>
+					</p>
+				</div>
+			</article>
+		</div>
+		{{ form.close() }}
+	</div>
+</div>
+{% endblock %}
