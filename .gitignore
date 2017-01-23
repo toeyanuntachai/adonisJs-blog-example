@@ -2,4 +2,3 @@ node_modules
 storage
 !.gitkeep
 npm-debug.log
-database/development.sqlite
